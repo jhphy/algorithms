@@ -40,5 +40,4 @@ public class CycleUndirectedGraph {
         boolean isCycle = cycle.hasCycleDFS(graph);
     }
 
-
 }
