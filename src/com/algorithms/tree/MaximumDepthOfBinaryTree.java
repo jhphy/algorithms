@@ -22,14 +22,14 @@ public class MaximumDepthOfBinaryTree {
 
     public static void main(String[] args) {
 
-        MaximumDepthOfBinaryTree d = new BinaryNode();
+        MaximumDepthOfBinaryTree d = new MaximumDepthOfBinaryTree();
 
         BinaryNode node = new BinaryNode(1);
         node.left = new BinaryNode(1);
         node.left.right = new BinaryNode(1);
 
-        int bottom_up = bottomUp(node);
-        int top_down = topDown(node);
+        int bottom_up = d.bottomUp(node);
+        int top_down = d.topDown(node);
 
         System.out.println(bottom_up);
         System.out.println(top_down);

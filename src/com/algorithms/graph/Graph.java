@@ -2,14 +2,14 @@ package com.algorithms.graph;
 
 import java.util.*;
 
-public class Graph<E> {
-    private  List<Edge<E>> allEdges;
-    public Map<Long, Vertex<E>> allVertex;
+public class Graph<T> {
+    private  List<Edge<T>> allEdges;
+    public Map<Long, Vertex<T>> allVertex;
     boolean isDirected = false;
 
     public Graph(boolean isDirected) {
-        allEdges = new ArrayList<Edge<E>>();
-        allVertex = new HashMap<Long, Vertex<E>>();
+        allEdges = new ArrayList<Edge<T>>();
+        allVertex = new HashMap<Long, Vertex<T>>();
         this.isDirected = isDirected;
     }
 
@@ -18,23 +18,23 @@ public class Graph<E> {
     }
 
     public void addEdge(long id1, long id2, int weight) {
-        Vertex<E> vertex1 = null;
+        Vertex<T> vertex1 = null;
         if(allVertex.containsKey(id1)) {
             vertex1 = allVertex.get(id1);
         }else{
-            vertex1 = new Vertex<>(E)(id1);
+            vertex1 = new Vertex<T>(id1);
             allVertex.put(id1, vertex1);
         }
 
-        Vertex<E> vertex2 = null;
+        Vertex<T> vertex2 = null;
         if(allVertex.containsKey(id2)) {
             vertex2 = allVertex.get(id2);
         }else{
-            vertex2 = new Vertex<>(E)(id2);
+            vertex2 = new Vertex<T>(id2);
             allVertex.put(id2, vertex2);
         }
 
-        Edge<E> edge = new Edge<>(vertex1, vertex2, isDirected, weight);
+        Edge<T> edge = new Edge<>(vertex1, vertex2, isDirected, weight);
         allEdges.add(edge);
         vertex1.addAdjacentVertex(edge, vertex2);
         if(!isDirected){
@@ -42,15 +42,19 @@ public class Graph<E> {
         }
     }
 
-    public List<Edge<E>> getAllEdges() {
+    public List<Edge<T>> getAllEdges() {
         return allEdges;
     }
 
-    public void setDataForVertex(long id, E data){
+    public void setDataForVertex(long id, T data){
         if(allVertex.containsKey(id)){
-            Vertex<E> vertex = allVertex.get(id);
+            Vertex<T> vertex = allVertex.get(id);
             vertex.setData(data);
         }
+    }
+
+    public Collection<Vertex<T>> getAllVertex(){
+        return allVertex.values();
     }
 
     @Override
@@ -64,11 +68,11 @@ public class Graph<E> {
     }
 }
 
-class Vertex<E> {
+class Vertex<T> {
     long id;
-    private E data;
-    private List<Edge<E>> edges = new ArrayList<>();
-    private List<Vertex<E>> adjacentVertex = new ArrayList<>();
+    private T data;
+    private List<Edge<T>> edges = new ArrayList<>();
+    private List<Vertex<T>> adjacentVertex = new ArrayList<>();
 
     Vertex(long id) {
         this.id = id;
@@ -78,24 +82,24 @@ class Vertex<E> {
         return id;
     }
 
-    public void setData(E data) {
+    public void setData(T data) {
         this.data = data;
     }
 
-    public E getData() {
+    public T getData() {
         return data;
     }
 
-    public void addAdjacentVertex(Edge<E> e, Vertex<E> v) {
+    public void addAdjacentVertex(Edge<T> e, Vertex<T> v) {
         edges.add(e);
         adjacentVertex.add(v);
     }
 
-    public List<Vertex<E>> getAdjacentVertex() {
+    public List<Vertex<T>> getAdjacentVertexes() {
         return adjacentVertex;
     }
 
-    public List<Edge<E>> getEdges() {
+    public List<Edge<T>> getEdges() {
         return edges;
     }
 
@@ -119,42 +123,42 @@ class Vertex<E> {
     }
 }
 
-class Edge<E> {
+class Edge<T> {
     private boolean isDirected = false;
-    private Vertex<E> vertex1;
-    private Vertex<E> vertex2;
+    private Vertex<T> vertex1;
+    private Vertex<T> vertex2;
     private int weight;
 
-    Edge(Vertex<E> vertex1, Vertex<E> vertex2) {
+    Edge(Vertex<T> vertex1, Vertex<T> vertex2) {
         this.vertex1 = vertex1;
         this.vertex2 = vertex2;
     }
 
-    Edge(Vertex<E> vertex1, Vertex<E> vertex2, boolean isDirected, int weight) {
+    Edge(Vertex<T> vertex1, Vertex<T> vertex2, boolean isDirected, int weight) {
         this.vertex1 = vertex1;
         this.vertex2 = vertex2;
         this.isDirected = isDirected;
         this.weight = weight;
     }
 
-    Edge(Vertex<E> vertex1, Vertex<E> vertex2, boolean isDirected) {
+    Edge(Vertex<T> vertex1, Vertex<T> vertex2, boolean isDirected) {
         this.vertex1 = vertex1;
         this.vertex2 = vertex2;
         this.isDirected = isDirected;
     }
 
-    Edge(Vertex<E> vertex1, Vertex<E> vertex2, int weight) {
+    Edge(Vertex<T> vertex1, Vertex<T> vertex2, int weight) {
         this.vertex1 = vertex1;
         this.vertex2 = vertex2;
         this.weight = weight;
     }
 
 
-    Vertex<E> getVertex1() {
+    Vertex<T> getVertex1() {
         return vertex1;
     }
 
-    Vertex<E> getVertex2() {
+    Vertex<T> getVertex2() {
         return vertex2;
     }
 
