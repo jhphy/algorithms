@@ -1,6 +1,5 @@
 package com.algorithms.graph;
 
-
 import java.util.*;
 
 public class Graph<E> {
@@ -113,6 +112,11 @@ class Vertex<E> {
     public int hashCode() {
         return super.hashCode();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }
 
 class Edge<E> {
@@ -163,20 +167,19 @@ class Edge<E> {
     }
 
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 
     @Override
     public int hashCode() {
-
+        return super.hashCode();
     }
 
     @Override
     public boolean equals(Object obj) {
-
-    }
-
-    @Override
-    public String toString() {
-
+        return super.equals(obj);
     }
 
 }
