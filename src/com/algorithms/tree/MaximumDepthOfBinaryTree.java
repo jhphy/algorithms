@@ -20,20 +20,20 @@ public class MaximumDepthOfBinaryTree {
         return Math.max(depth_left, depth_right);
     }
 
-    public static void main(String[] args) {
-
-        MaximumDepthOfBinaryTree d = new MaximumDepthOfBinaryTree();
-
-        BinaryNode node = new BinaryNode(1);
-        node.left = new BinaryNode(1);
-        node.left.right = new BinaryNode(1);
-
-        int bottom_up = d.bottomUp(node);
-        int top_down = d.topDown(node);
-
-        System.out.println(bottom_up);
-        System.out.println(top_down);
-
-    }
+//    public static void main(String[] args) {
+//
+//        MaximumDepthOfBinaryTree d = new MaximumDepthOfBinaryTree();
+//
+//        BinaryNode node = new BinaryNode(1);
+//        node.left = new BinaryNode(1);
+//        node.left.right = new BinaryNode(1);
+//
+//        int bottom_up = d.bottomUp(node);
+//        int top_down = d.topDown(node);
+//
+//        System.out.println(bottom_up);
+//        System.out.println(top_down);
+//
+//    }
 
 }

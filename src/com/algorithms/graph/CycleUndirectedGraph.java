@@ -3,7 +3,7 @@ import java.util.*;
 
 public class CycleUndirectedGraph<T> {
     public boolean hasCycleDFS(Graph<T> graph) {
-        Set<Vertex<T>> visited = new HashSet<Vertex<T>>();
+        Set<Vertex<T>> visited = new HashSet<>();
         for(Vertex<T> vertex: graph.getAllVertex()) {
             if(visited.contains(vertex)) {
                 continue;
@@ -34,8 +34,8 @@ public class CycleUndirectedGraph<T> {
     }
 
     public static void main(String[] args) {
-        CycleUndirectedGraph<Integer> cycle = new CycleUndirectedGraph<Integer>();
-        Graph<Integer> graph = new Graph<Integer>(false);
+        CycleUndirectedGraph<Integer> cycle = new CycleUndirectedGraph<>();
+        Graph<Integer> graph = new Graph<>(false);
 
         graph.addEdge(0, 1);
         graph.addEdge(1, 2);
