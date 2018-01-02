@@ -1,4 +1,4 @@
 algorithms.iml
 .idea
 .DS_Store
-src/
+out/
