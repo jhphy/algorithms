@@ -18,7 +18,7 @@ public class Permutations {
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(nums);
         boolean[] visited = new boolean[nums.length];
-        backtrackDuplicateArray(res, new ArrayList<Integer>(), nums, visited);
+        backtrackDuplicateArray(res, new ArrayList<>(), nums, visited);
         return res;
     }
 
@@ -63,6 +63,7 @@ public class Permutations {
         printLists(dup);
     }
 
+    //print List<List<>>
     private static void printLists(List<List<Integer>> lists) {
         for(List<Integer> list: lists) {
             System.out.print('[');
