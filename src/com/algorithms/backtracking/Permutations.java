@@ -5,15 +5,18 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Permutations {
-
-    // this method return permute for array, the elements in array must be different
+/*
+ * this method return permute for array, the elements in array must be different
+ */
     public List<List<Integer>> permuteDistinctArray(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         backtrackDistinctArray(res, new ArrayList<>(), nums);
         return res;
     }
+/*
+ * Given a collection of numbers that might contain duplicates, return all possible unique permutations.
+ */
 
-    //Given a collection of numbers that might contain duplicates, return all possible unique permutations.
     public List<List<Integer>> permuteDuplicateArray(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(nums);
