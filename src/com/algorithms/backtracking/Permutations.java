@@ -1,5 +1,7 @@
 package com.algorithms.backtracking;
 
+import com.algorithms.helper.Print;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,6 +27,24 @@ public class Permutations {
         return res;
     }
 
+    public void permuteString(String str) {
+        permuteStringHelper(new StringBuilder().append(str), new StringBuilder());
+    }
+
+    public void permuteStringHelper(StringBuilder str, StringBuilder chosen) {
+        if(str.length() == 0) {
+            System.out.println(chosen.toString());
+        }else{
+            for(int i = 0; i < str.length(); i++) {
+                char ch = str.charAt(i);
+                chosen.append(ch);
+                str = str.deleteCharAt(i);
+                permuteStringHelper(str, chosen);
+                chosen.deleteCharAt(chosen.length() - 1);
+                str = str.insert(i, ch);
+            }
+        }
+    }
 
     private void backtrackDistinctArray(List<List<Integer>> res, List<Integer> cur, int[] nums) {
         if(cur.size() == nums.length) {
@@ -62,19 +82,8 @@ public class Permutations {
         Permutations distinct = new Permutations();
         List<List<Integer>> no_dup = distinct.permuteDistinctArray(arr_1);
         List<List<Integer>> dup = distinct.permuteDuplicateArray(arr_2);
-        printLists(no_dup);
-        printLists(dup);
-    }
-
-    //print List<List<>>
-    private static void printLists(List<List<Integer>> lists) {
-        for(List<Integer> list: lists) {
-            System.out.print('[');
-            for(Integer num: list) {
-                System.out.print(num + "");
-            }
-            System.out.print(']');
-        }
-        System.out.println("");
+        distinct.permuteString("JIANG");
+        Print.puts(no_dup);
+        Print.puts(dup);
     }
 }
