@@ -5,13 +5,13 @@
 
 ```<b>tag</b>
 INSERTION-SORT(A)
-for j = 2 to A.length
-  key = A[j]
-  i = j - 1
-  while i > 0 and A[i] > key
-    A[i+1] = A[i]
-    i = i - 1
-  A[i+1] = key
+  for j = 2 to A.length
+    key = A[j]
+    i = j - 1
+    while i > 0 and A[i] > key
+      A[i+1] = A[i]
+      i = i - 1
+    A[i+1] = key
 ```
 
 ## Mergesort
@@ -49,10 +49,10 @@ MERGE(A, p, q, r)
 
 ```<b>tag</b>
 BUILD-MAX-HEAP(A)
-for i = A.length downto 2
-  exchangeA[1] with A[i]
-  A.heap-size = A.heap-size - 1
-  MAX-HEAPIFY(A, 1)
+  for i = A.length downto 2
+    exchangeA[1] with A[i]
+    A.heap-size = A.heap-size - 1
+    MAX-HEAPIFY(A, 1)
 ```
 
 ## Quicksort
@@ -101,6 +101,6 @@ for j = A.length downto 1
 
 ```<b>tag</b>
 RADIX_SORT(A, d)
-for i = 1 to d
-  use a stable sort to sort array A on digit i
+  for i = 1 to d
+    use a stable sort to sort array A on digit i
 ```
