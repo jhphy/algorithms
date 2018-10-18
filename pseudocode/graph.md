@@ -49,7 +49,37 @@ DFS-VISIT(G, u)
   u.f = time
 ```
 
+## Minimum Spanning Trees
+
+```<b>tag</b>
+GENERIC-MST(G, w)
+  A = ∅
+  while A does not form a spanning tree
+    find an edge (u, v) that is safe for A
+    A = A ∪ {(u, v)}
+  return A
+```
+
+### Kruskal's algorithm
+
+### Prim's algorithm
+
 ## Single-Source Shortest paths
+
+### Relaxation
+
+```<b>tag</b>
+INITIALIZE-SINGLE-SOURCE(G, s)
+  for each vertex v ∈ G.V
+    u.d = INF
+    u.π = NIL
+  s.d = 0
+
+RELAX(u, v, w)
+  if v.d > u.d + w(u, v)
+    v.d = u.d + w(u, v)
+    v.π = u
+```
 
 ### Bellman-Ford algorithm
 
