@@ -40,7 +40,8 @@ MERGE(A, p, q, r)
     if L[i] <= R[j]
       A[k] = L[i]
       i = i + 1
-    else A[k] = R[j]
+    else
+      A[k] = R[j]
       j = j + 1
 ```
 
