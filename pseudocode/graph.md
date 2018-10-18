@@ -48,3 +48,33 @@ DFS-VISIT(G, u)
   time = time + 1
   u.f = time
 ```
+
+## Single-Source Shortest paths
+
+### Bellman-Ford algorithm
+
+```<b>tag</b>
+BELLMAN-FORD(G, w, s)
+  INITIALIZE-SINGLE-SOURCE(G, s)
+  for i = 1 to |G.V| - 1
+    for each edge(u, v) ∈ G.E
+      RELEX(u, v, w)
+    for each edge(u, v) ∈ G.E
+      if v.d > u.d + w(u, v)
+        return FALSE
+  return TRUE
+```
+
+### Dijkstra's algorithm
+
+```<b>tag</b>
+DIJKSTRA(G, w, s)
+  INITIALIZE-SINGLE-SOURCE(G, s)
+  S = ∅
+  Q = G.V
+  while Q != ∅
+    u = EXTRACT-MIN(Q)
+    S = S ∪ {u}
+    for each v ∈ G.Adj[u]
+      RELEX(u, v, w)
+```
