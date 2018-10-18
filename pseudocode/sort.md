@@ -104,3 +104,19 @@ RADIX_SORT(A, d)
   for i = 1 to d
     use a stable sort to sort array A on digit i
 ```
+
+## Selection
+
+```<b>tag</b>
+RANDOMIZED-SELECT(A, p, r, i)
+  if p == r
+    return A[p]
+  q = RANDOMIZED-PARTITION(A, p, r)
+  k = q - p + 1
+  if i == k
+    return A[q]
+  elseif i < k
+    return RANDOMIZED-SELECT(A, p, q - 1, i)
+  else
+    return RANDOMIZED-SELECT(A, p + 1, r,  i - k)
+```
