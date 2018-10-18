@@ -32,8 +32,8 @@ MERGE(A, p, q, r)
     L[i] = A[p+i-1]
   for j = 1 to m
     R[j] = A[q+j]
-  L[n+1] = +inf
-  L[m+1] = +inf
+  L[n+1] = INF
+  L[m+1] = INF
   i = 1
   j = 1
   for k = p to r
