@@ -62,7 +62,35 @@ GENERIC-MST(G, w)
 
 ### Kruskal's algorithm
 
+```<b>tag</b>
+MST-KRUSKAL(G, w)
+  A = ∅
+  for each vertex v ∈ G.V
+    MAKE-SET(v)
+  sort the edge of G.E into nondecreasing order by weight w
+  for each edge(u, v) ∈ G.E taken in nondecreasing order by weight
+    if FIND-SET(u) != FIND-SET(v)
+      A = A ∪ {(u, v)}
+      UNION(u, v)
+  return A
+```
+
 ### Prim's algorithm
+
+```<b>tag</b>
+MST-PRIM(G, w, r)
+  for each u ∈ G.V
+    u.key = INF
+    u.π = NIL
+  r.key = 0
+  Q = G.V
+  while Q != ∅
+    u = EXTRACT-MIN(Q)
+    for each v ∈ G.Adj[u]
+      if v ∈ Q and w(u, v) < v.key
+        v.π = u
+        v.key = w(u, v)
+```
 
 ## Single-Source Shortest paths
 
