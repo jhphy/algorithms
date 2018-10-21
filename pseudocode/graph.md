@@ -117,9 +117,9 @@ BELLMAN-FORD(G, w, s)
   for i = 1 to |G.V| - 1
     for each edge(u, v) ∈ G.E
       RELEX(u, v, w)
-    for each edge(u, v) ∈ G.E
-      if v.d > u.d + w(u, v)
-        return FALSE
+  for each edge(u, v) ∈ G.E
+    if v.d > u.d + w(u, v)
+      return FALSE
   return TRUE
 ```
 
