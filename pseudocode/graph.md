@@ -136,3 +136,17 @@ DIJKSTRA(G, w, s)
     for each v ∈ G.Adj[u]
       RELEX(u, v, w)
 ```
+
+## All-Pairs Shortest paths
+
+### Floyed-Warshall algorithm
+
+```<b>tag</b>
+```
+
+### Johnson’s algorithm for sparse graphs
+
+```<b>tag</b>
+```
+
+## Maximum Flow
